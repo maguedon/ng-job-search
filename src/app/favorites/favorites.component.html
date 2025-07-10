@@ -1,0 +1,16 @@
+<table class="striped">
+  <tbody>
+    @for (job of favoriteJobs(); track job.id) {
+      <tr>
+        <td><img ngSrc="{{ job.companyLogo }}" alt="Logo de {{ job.companyName }}" width="100" height="100" /></td>
+        <td>
+          <p><b>{{ job.title }}</b></p>
+          <p>Company : {{ job.companyName }}</p>
+          <p>Reference : {{ job.reference }}</p>
+        </td>
+      </tr>
+    } @empty {
+      <tr>No favorite selected</tr>
+    }
+  </tbody>
+</table>
