@@ -5,7 +5,7 @@ import {Job} from "../jobs/job.model";
   providedIn: 'root'
 })
 export class FavoritesService {
-  private readonly keyLocalStorage = 'favorites';
+  private readonly keyLocalStorage: string = 'favorites';
 
   private favorites: WritableSignal<Job[]> = signal(this.getFavoritesFromLocalStorage());
 
@@ -13,17 +13,17 @@ export class FavoritesService {
     return this.favorites.asReadonly();
   }
 
-  addFavorite(job: Job) {
+  addFavorite(job: Job): void {
     this.favorites.update(jobs => [...jobs, job]);
     this.setFavoritesToLocalStorage(this.favorites());
   }
 
-  removeFavorite(job: Job) {
+  removeFavorite(job: Job): void {
     this.favorites.update(jobs => jobs.filter(j => j.id !== job.id));
     this.setFavoritesToLocalStorage(this.favorites());
   }
 
-  private setFavoritesToLocalStorage(favorites: Job[]) {
+  private setFavoritesToLocalStorage(favorites: Job[]): void {
     localStorage.setItem(this.keyLocalStorage, JSON.stringify(favorites));
   }
 

@@ -1,4 +1,4 @@
-import {computed, Directive, effect, ElementRef, HostListener, inject, input, Signal} from '@angular/core';
+import {computed, Directive, effect, ElementRef, HostListener, inject, input, InputSignal, Signal} from '@angular/core';
 import {Job} from "../jobs/job.model";
 import {FavoritesService} from "./favorites.service";
 
@@ -7,10 +7,11 @@ import {FavoritesService} from "./favorites.service";
   standalone: true
 })
 export class FavoriteDirective {
-  private el = inject(ElementRef);
-  private favoritesService = inject(FavoritesService);
+  private el: ElementRef = inject(ElementRef);
+  private favoritesService: FavoritesService = inject(FavoritesService);
 
-  job = input.required<Job>({alias: 'appFavorite'});
+  readonly job: InputSignal<Job> = input.required<Job>({alias: 'appFavorite'});
+
   private readonly favorites: Signal<Job[]> = this.favoritesService.getFavorites();
   private readonly isFavorite: Signal<boolean> = computed(() => this.favorites().some(j => j.id == this.job().id));
 
@@ -26,7 +27,7 @@ export class FavoriteDirective {
   }
 
   @HostListener('click')
-  onClick() {
+  onClick(): void {
     if (this.isFavorite()) {
       this.favoritesService.removeFavorite(this.job());
     } else {

@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class JobsService {
-  private http = inject(HttpClient);
+  private readonly http: HttpClient = inject(HttpClient);
 
   getJobs(): Observable<Job[]> {
     return this.http.get<Job[]>('/jobs');

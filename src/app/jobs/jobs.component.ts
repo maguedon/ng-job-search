@@ -16,10 +16,8 @@ import {Subscription} from "rxjs";
   styleUrl: './jobs.component.css'
 })
 export class JobsComponent implements OnDestroy {
-  protected readonly jobsService = inject(JobsService);
-
+  private readonly jobsService: JobsService = inject(JobsService);
   private readonly subs: Subscription;
-
   protected jobs: Job[] = [];
 
   constructor() {

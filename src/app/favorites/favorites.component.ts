@@ -13,7 +13,6 @@ import {FavoritesService} from "./favorites.service";
   styleUrl: './favorites.component.css'
 })
 export class FavoritesComponent {
-  private favoritesService = inject(FavoritesService);
-
+  private readonly favoritesService: FavoritesService = inject(FavoritesService);
   protected readonly favoriteJobs: Signal<Job[]> = this.favoritesService.getFavorites();
 }

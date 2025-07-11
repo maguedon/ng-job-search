@@ -16,8 +16,8 @@ import {SafeHtmlPipe} from "../utils/safe-html.pipe";
   styleUrl: './job.component.css'
 })
 export class JobComponent {
-  jobId: InputSignal<number> = input.required<number>();
-  private jobsService = inject(JobsService);
+  readonly jobId: InputSignal<number> = input.required<number>();
+  private readonly jobsService: JobsService = inject(JobsService);
   protected job?: Job;
 
   constructor() {
