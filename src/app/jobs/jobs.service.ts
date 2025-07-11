@@ -12,4 +12,8 @@ export class JobsService {
   getJobs(): Observable<Job[]> {
     return this.http.get<Job[]>('/jobs');
   }
+
+  getJob(jobId: number): Observable<Job> {
+    return this.http.get<Job>(`/jobs/${jobId}`);
+  }
 }

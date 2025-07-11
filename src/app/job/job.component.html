@@ -1,0 +1,39 @@
+@if (job) {
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <a href="/jobs" class="button">
+          <span class="icon-home"></span> Back
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <img ngSrc="{{ job.companyLogo }}" alt="Logo de {{ job.companyName }}" width="100" height="100" />
+      </div>
+      <div class="col-sm-10">
+        <h1>{{ job.companyName }} - {{ job.title }}</h1>
+        <p>
+          @for (type of job.types; track type) {
+            <mark class="tag">{{ type }}</mark>
+          }
+          @for (industry of job.industries; track industry) {
+            <mark class="tag">{{ industry }}</mark>
+          }
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p><b>Publish date:</b> {{ job.publishDate | date }}</p>
+        <p><b>Location:</b> {{ job.location }}</p>
+        <p><b>Reference:</b> {{ job.reference }}</p>
+        <p><b>Description:</b></p>
+        <div [innerHTML]="job.description | safeHtml"></div>
+      </div>
+    </div>
+  </div>
+
+} @else {
+  <p>Loading...</p>
+}
