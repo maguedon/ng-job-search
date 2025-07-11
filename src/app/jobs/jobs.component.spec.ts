@@ -9,7 +9,6 @@ describe('JobsComponent', () => {
   let fixture: ComponentFixture<JobsComponent>;
   let jobsService: jasmine.SpyObj<JobsService>;
 
-
   beforeEach(async () => {
     const jobsServiceSpy = jasmine.createSpyObj('JobsService', ['getJobs']);
 
@@ -30,10 +29,6 @@ describe('JobsComponent', () => {
   });
 
   it('should create', () => {
-
-
-
-
     expect(component).toBeTruthy();
   });
 });

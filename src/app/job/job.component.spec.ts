@@ -3,8 +3,8 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {JobComponent} from './job.component';
 import {JobsService} from "../jobs/jobs.service";
 import {of} from "rxjs";
-import {Job} from "../jobs/job.model";
 import {ComponentRef} from '@angular/core'
+import {DetailedJob} from "../jobs/detailed-job.model";
 
 describe('JobComponent', () => {
   let component: JobComponent;
@@ -12,7 +12,7 @@ describe('JobComponent', () => {
   let fixture: ComponentFixture<JobComponent>;
   let jobsService: jasmine.SpyObj<JobsService>;
 
-  const job: Job = {
+  const job: DetailedJob = {
     id: 103532,
     companyName: "Webflow",
     title: "Technical Support Associate",
@@ -27,7 +27,7 @@ describe('JobComponent', () => {
   };
 
   beforeEach(async () => {
-    const jobsServiceSpy = jasmine.createSpyObj('JobsService', ['getJob']);
+    const jobsServiceSpy = jasmine.createSpyObj('JobsService', ['getDetailedJob']);
 
     await TestBed.configureTestingModule({
       imports: [JobComponent],
@@ -38,7 +38,7 @@ describe('JobComponent', () => {
     .compileComponents();
 
     jobsService = TestBed.inject(JobsService) as jasmine.SpyObj<JobsService>;
-    jobsService.getJob.and.returnValue(of(job));
+    jobsService.getDetailedJob.and.returnValue(of(job));
 
     fixture = TestBed.createComponent(JobComponent);
     component = fixture.componentInstance;

@@ -1,7 +1,7 @@
 import {Component, effect, inject, input, InputSignal} from '@angular/core';
 import {JobsService} from "../jobs/jobs.service";
-import {Job} from "../jobs/job.model";
 import {DatePipe, NgOptimizedImage} from "@angular/common";
+import {DetailedJob} from "../jobs/detailed-job.model";
 
 @Component({
   selector: 'app-job',
@@ -16,11 +16,11 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
 export class JobComponent {
   readonly jobId: InputSignal<number> = input.required<number>();
   private readonly jobsService: JobsService = inject(JobsService);
-  protected job?: Job;
+  protected job?: DetailedJob;
 
   constructor() {
     effect(() => {
-      this.jobsService.getJob(this.jobId()).subscribe(j => this.job = j);
+      this.jobsService.getDetailedJob(this.jobId()).subscribe(j => this.job = j);
     });
   }
 }
