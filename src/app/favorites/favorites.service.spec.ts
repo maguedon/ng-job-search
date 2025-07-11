@@ -50,7 +50,7 @@ describe('FavoritesService', () => {
     service.addFavorite(favorites[1]);
 
     favoritesSignal = service.getFavorites();
-    let result: Job[] = favoritesSignal();
+    const result: Job[] = favoritesSignal();
 
     expect(result).toHaveSize(2);
     expect(result).toEqual(favorites);

@@ -47,7 +47,7 @@ describe('JobsService', () => {
       expect(jobs).toEqual(expectation)
     );
 
-    const req = httpClient.expectOne(`/jobs`);
+    const req: TestRequest = httpClient.expectOne(`/jobs`);
     req.flush(expectation);
   });
 

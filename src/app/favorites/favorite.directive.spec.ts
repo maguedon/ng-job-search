@@ -29,10 +29,10 @@ class MockFavoritesService {
     return this.favorites.asReadonly();
   }
 
-  addFavorite = jasmine.createSpy('addFavorite');
-  removeFavorite = jasmine.createSpy('removeFavorite');
+  addFavorite: () => void = jasmine.createSpy('addFavorite');
+  removeFavorite: () => void = jasmine.createSpy('removeFavorite');
 
-  setFavorites(jobs: Job[]) {
+  setFavorites(jobs: Job[]): void {
     this.favorites.set(jobs);
   }
 }

@@ -27,7 +27,7 @@ describe('JobComponent', () => {
   };
 
   beforeEach(async () => {
-    const jobsServiceSpy = jasmine.createSpyObj('JobsService', ['getDetailedJob']);
+    const jobsServiceSpy: jasmine.SpyObj<JobsService> = jasmine.createSpyObj('JobsService', ['getDetailedJob']);
 
     await TestBed.configureTestingModule({
       imports: [JobComponent],

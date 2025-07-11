@@ -10,7 +10,7 @@ describe('JobsComponent', () => {
   let jobsService: jasmine.SpyObj<JobsService>;
 
   beforeEach(async () => {
-    const jobsServiceSpy = jasmine.createSpyObj('JobsService', ['getJobs']);
+    const jobsServiceSpy: jasmine.SpyObj<JobsService> = jasmine.createSpyObj('JobsService', ['getJobs']);
 
     await TestBed.configureTestingModule({
       imports: [JobsComponent],
