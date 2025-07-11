@@ -1,10 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {JobComponent} from './job.component';
-import {JobsService} from "../jobs/jobs.service";
+import {JobsService} from "../jobs.service";
 import {of} from "rxjs";
 import {ComponentRef} from '@angular/core'
-import {DetailedJob} from "../jobs/detailed-job.model";
+import {DetailedJob} from "../detailed-job.model";
 
 describe('JobComponent', () => {
   let component: JobComponent;

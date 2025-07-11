@@ -1,7 +1,7 @@
 import {Component, effect, inject, input, InputSignal} from '@angular/core';
-import {JobsService} from "../jobs/jobs.service";
+import {JobsService} from "../jobs.service";
 import {DatePipe, NgOptimizedImage} from "@angular/common";
-import {DetailedJob} from "../jobs/detailed-job.model";
+import {DetailedJob} from "../detailed-job.model";
 import {RouterLink} from "@angular/router";
 
 @Component({

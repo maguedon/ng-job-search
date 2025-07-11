@@ -11,8 +11,7 @@ import {RouterLink} from "@angular/router";
     NgOptimizedImage,
     RouterLink
   ],
-  templateUrl: './favorites.component.html',
-  styleUrl: './favorites.component.css'
+  templateUrl: './favorites.component.html'
 })
 export class FavoritesComponent {
   private readonly favoritesService: FavoritesService = inject(FavoritesService);
