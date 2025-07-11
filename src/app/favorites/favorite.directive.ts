@@ -27,7 +27,7 @@ export class FavoriteDirective {
   }
 
   @HostListener('click')
-  onClick(): void {
+  toggleFavorite(): void {
     if (this.isFavorite()) {
       this.favoritesService.removeFavorite(this.job());
     } else {
