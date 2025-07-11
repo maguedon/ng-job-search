@@ -4,13 +4,15 @@ import {Job} from "./job.model";
 import {NgOptimizedImage} from "@angular/common";
 import {FavoriteDirective} from "../favorites/favorite.directive";
 import {Subscription} from "rxjs";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-jobs',
   standalone: true,
   imports: [
     NgOptimizedImage,
-    FavoriteDirective
+    FavoriteDirective,
+    RouterLink
   ],
   templateUrl: './jobs.component.html',
   styleUrl: './jobs.component.css'

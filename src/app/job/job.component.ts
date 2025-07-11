@@ -2,13 +2,15 @@ import {Component, effect, inject, input, InputSignal} from '@angular/core';
 import {JobsService} from "../jobs/jobs.service";
 import {DatePipe, NgOptimizedImage} from "@angular/common";
 import {DetailedJob} from "../jobs/detailed-job.model";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-job',
   standalone: true,
   imports: [
     NgOptimizedImage,
-    DatePipe
+    DatePipe,
+    RouterLink
   ],
   templateUrl: './job.component.html',
   styleUrl: './job.component.css'

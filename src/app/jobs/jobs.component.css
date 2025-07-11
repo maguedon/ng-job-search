@@ -1,3 +1,7 @@
 span.icon-star.active {
   background-color: yellow;
 }
+
+div.div-icon-star {
+  line-height: 6em;
+}

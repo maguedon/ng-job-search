@@ -1,0 +1,4 @@
+header a.active {
+  background-color: var(--a-visited-color);
+  color: var(--back-color);
+}
