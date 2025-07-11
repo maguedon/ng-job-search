@@ -1,7 +1,5 @@
-import { Routes } from '@angular/router';
-import { JobsComponent } from "./jobs/jobs.component";
-import { FavoritesComponent} from "./favorites/favorites.component";
-import {JobComponent} from "./job/job.component";
+import {Routes} from '@angular/router';
+import {JobsComponent} from "./jobs/jobs.component";
 
 export const routes: Routes = [
   {
@@ -13,13 +11,13 @@ export const routes: Routes = [
       },
       {
         path: ':jobId',
-        component: JobComponent
+        loadComponent: () => import('./job/job.component').then(m => m.JobComponent)
       }
     ]
   },
   {
     path: 'favorites',
-    component: FavoritesComponent,
+    loadComponent: () => import('./favorites/favorites.component').then(m => m.FavoritesComponent)
   },
   { path: '**', redirectTo: '/jobs' }
 ];
